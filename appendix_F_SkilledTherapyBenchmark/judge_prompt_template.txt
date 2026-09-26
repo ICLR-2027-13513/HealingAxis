@@ -1,0 +1,665 @@
+You are a clinical judge grading one therapist response against the numbered criteria of many psychotherapy skills at once. You are given a single client and therapist exchange, then a checklist that lists every skill with its numbered criteria. Judge that one exchange against every criterion of every skill below.
+
+Judge each criterion independently. A doubt about one criterion must not lower your verdict on another. A single short exchange can only exercise a few skills, so most skills will have no occasion here. That is expected and is handled by the verdicts below.
+
+VERDICTS (assign exactly one per criterion):
+- TRUE: the response performs this criterion's requirement, even briefly, implicitly, or in different words. Credit a genuine attempt; do not require the ideal or fullest form.
+- FALSE: the criterion applies here and the response fails it: absent, merely generic, the opposite, or a required element omitted.
+- N/A: assign strictly per the N/A POLICY below.
+
+N/A POLICY: Use N/A only when a criterion is (a) genuinely unobservable from a text transcript, for example eye contact, forward lean, or tone of voice, or (b) there is genuinely no occasion to exercise it in this single exchange. Never use N/A (or TRUE) to excuse a response that plainly does the opposite of the criterion. That is what FALSE is for. When a skill is genuinely in play its criteria cannot all be N/A, but a skill that has no occasion at all in this exchange may be entirely N/A.
+
+OUTPUT FORMAT: return ONLY a single JSON object, with no prose, no explanation, and no markdown code fences. Use exactly this shape:
+{"skills":[{"id":"<skill_id>","v":"<letters>","met":<0 or 1>}, ...]}
+
+Rules for the JSON:
+- Include exactly one entry for every skill in the SKILL CRITERIA CHECKLIST below, in the same order they appear.
+- "id" is the skill id exactly as printed in that skill's header, for example "mi:1".
+- "v" is a string of single letter verdicts, one letter per criterion in the listed order: T for TRUE, F for FALSE, N for N/A. The number of letters must equal that skill's criterion count.
+- "met" is 1 if the response demonstrates the skill, otherwise 0. Compute it by this rule: met is 1 when the skill's verdict letters contain zero F and at least one T; met is 0 otherwise, meaning any F is present or every letter is N.
+
+================ SKILL CRITERIA CHECKLIST (130 skills, 378 criteria) ================
+Judge the single exchange in the user message against every criterion listed below.
+
+## aedp:1 - Moment-to-Moment Tracking (Accelerated Experiential Dynamic Psychotherapy (AEDP))
+0. Name in a statement a nonverbal/physical movement of your client. Make your statement descriptive and short.
+
+## aedp:2 - Exploring and Staying With Physical Experience (Accelerated Experiential Dynamic Psychotherapy (AEDP))
+0. Notice an affect-laden word and invite the client to describe their physical experience.
+1. Explicitly ask if the two of you can stay with the client's experience.
+
+## aedp:3 - Undoing Aloneness (Accelerated Experiential Dynamic Psychotherapy (AEDP))
+0. Use paraverbal and nonverbal behaviors to reinforce your presence.
+1. State or use words that imply you are present with the client.
+2. Ask or invite the client to take in your presence.
+
+## aedp:4 - Affirming (Accelerated Experiential Dynamic Psychotherapy (AEDP))
+0. Match your nonverbal behavior and prosody (tone) of your voice with your affirming words.
+1. Specifically and authentically affirm something the client has done or is doing.
+
+## aedp:5 - Self-Involving Self-Disclosure (Accelerated Experiential Dynamic Psychotherapy (AEDP))
+0. Be explicit about what the client has said or done to evoke a reaction in you.
+1. Name the reaction/feeling you are having in the moment that is brought on by the client's behavior and/or statements. Use vivid language and be specific.
+
+## aedp:6 - Self-Revealing Self-Disclosure (Accelerated Experiential Dynamic Psychotherapy (AEDP))
+0. Share your own personal experience that relates to the most poignant or significant part of the client's statement.
+
+## aedp:7 - Metaprocessing (Accelerated Experiential Dynamic Psychotherapy (AEDP))
+0. Make an intervention: Option A: Moment-to-moment tracking; Option B: Affirming; Option C: Self-revealing self-disclosure.
+1. Ask the client to reflect on their internal experience of the therapist's intervention.
+
+## aedp:8 - Working With Anxiety (Accelerated Experiential Dynamic Psychotherapy (AEDP))
+0. Reframe the anxiety, however it manifests, as positive.
+1. Ask permission to explore the anxiety.
+
+## aedp:9 - Affirmative Work With Defenses (Accelerated Experiential Dynamic Psychotherapy (AEDP))
+0. Describe what the client does instead of feeling the primary affect.
+1. Value the defense in the client's present or past.
+2. Invitation to action: Option A: Invite the client to explore the defense; Option B: Invite the client to bypass the defense.
+
+## aedp:10 - Initiating Portrayals (Accelerated Experiential Dynamic Psychotherapy (AEDP))
+0. Invite the client to imagine a person or part of the self, bringing in details of that person or part.
+1. Invite the client to address this imagined person or part directly.
+
+## aedp:11 - Privileging Transformance Strivings (Accelerated Experiential Dynamic Psychotherapy (AEDP))
+0. Look and listen for opportunities to highlight where the client is saying or doing something healthier.
+1. Use an AEDP skill from this book to celebrate, promote, or strengthen that healthier behavior.
+
+## aedp:12 - Metatherapeutic Processing (Accelerated Experiential Dynamic Psychotherapy (AEDP))
+0. Ask the client an open-ended question about a positive shift or change for the better that they have mentioned.
+1. Continue to ask open-ended questions focusing on exploring and deepening the client's experience of change for the better.
+
+## cbt:1 - Explaining the Treatment Rationale for Cognitive Behavioral Therapy (Cognitive Behavioral Therapy)
+0. Validate the client’s experience.
+1. Explain the logic of how CBT can be used to address concerns.
+2. Instill hope for using CBT effectively.
+3. Set appropriate expectations for the nature and impact of CBT.
+4. Engage in ample eye contact and forward lean.
+
+## cbt:2 - Establishing Goals (Cognitive Behavioral Therapy)
+0. Suggest CBT-consistent goals and tasks that align with an individualized CBT case formulation.
+1. Invite the client’s input on and agreement with the goals and tasks.
+2. Demonstrate flexibility.
+3. Emphasize concrete, actionable, and measurable goals.
+
+## cbt:3 - Negotiating a Session Agenda (Cognitive Behavioral Therapy)
+0. Suggest a CBT-consistent agenda that aligns with the CBT case formulation.
+1. Invite the client’s input on and agreement with the agenda.
+2. Demonstrate flexibility.
+3. Maintain some degree of frame or structure (i.e., the agenda can shift, but generally maintain a more or less explicit attempt to delineate expectations for session goals and tasks).
+
+## cbt:4 - Assigning and Reviewing Between-Session Activities (Cognitive Behavioral Therapy)
+0. Provide a basic rationale for the homework assignment.
+1. Tailor the homework assignment to the client’s concerns and needs.
+2. Ensure that there is adequate agreement on and understanding of the homework assignment.
+3. Encourage and validate good-faith efforts.
+
+## cbt:5 - Working With Cognitions (Cognitive Behavioral Therapy)
+0. Encourage and facilitate client self-reflection on thoughts and beliefs.
+1. Maintain an open, exploratory stance.
+2. Orient the client’s attention to thoughts or connections between thoughts and other experiences.
+3. Emphasize cognitive flexibility, rather than simple thought replacement, and refrain from implying that a particular thought is “right or wrong.”
+
+## cbt:6 - Working With Behaviors (Cognitive Behavioral Therapy)
+0. Maintain a collaborative and curious stance.
+1. Be clear when suggesting a plan of action and expectations.
+2. Be positive and supportive of both big and small positive changes.
+3. Appeal to relevant core learning concepts, including conditioning, reinforcement, the importance of environment, antecedents, and consequences.
+
+## cbt:7 - Working With Emotions (Cognitive Behavioral Therapy)
+0. Empathically inquire about clients’ emotional experience.
+1. Actively listen and maintain a supportive tone to clients’ emotional disclosures.
+2. Model tolerance of affect and an approach orientation to clients’ strong emotional experience.
+3. Use psychoeducation to support the importance of clients experiencing versus avoiding their emotion and the maladaptive consequences of negative reinforcement.
+
+## cbt:8 - Adherence Flexibility (Cognitive Behavioral Therapy)
+0. Maintain a collaborative and transparent stance.
+1. Demonstrate empathy.
+2. Demonstrate openness to explore before determining if a modification is indeed warranted.
+3. Maintain consistency with a broad CBT orientation.
+
+## cbt:9 - Responding to Therapeutic Alliance Ruptures (Cognitive Behavioral Therapy)
+0. Momentarily step away from the CBT change agenda.
+1. Warmly invite the client to discuss their subjective experience.
+2. Empathize with the client’s thoughts and feelings and invite further disclosure of unhelpful or invalidating occurrences.
+3. “Disarm” the client’s negative affect toward you or CBT by finding some truth in their disclosures.
+
+## cbt:10 - Responding to Client Resistance (Cognitive Behavioral Therapy)
+0. Momentarily step away from the CBT change agenda.
+1. Empathically explore the client’s experience of treatment and you.
+2. Validate clients’ experience and “roll with” versus challenging their resistance.
+3. Support clients’ autonomy and elicit their motivation for pursuing valued directions.
+
+## efct:1 - Evocative Inquiry: Identifying Patterns and Eliciting Attachment Fears and Needs (Emotionally Focused Couple Therapy)
+0. Ask an open-ended question inviting Partner 1 to explore one of the following options: Option 1: Their feelings. Option 2: Their body sensations about what they just said.
+1. Ask an open-ended question inviting Partner 2 to explore one of the following options: Option 1: Their feelings. Option 2: Their body sensations about what Partner 1 just said.
+
+## efct:2 - Evocative Reflection: Eliciting and Heightening Emotional Experience (Emotionally Focused Couple Therapy)
+0. Reflect back the most poignant part of what the client is saying or doing.
+1. Heighten this part by repeating it, using more vivid language, metaphor, or imagery.
+2. Check with the client to see if the evocative reflection fits.
+
+## efct:3 - Validating Partners’ Experiences and Tracking Dysfunctional Patterns (Emotionally Focused Couple Therapy)
+0. Match the client’s vocal tone, intensity, and prosody to convey attunement to their current experience.
+1. Validate the client’s feelings or thoughts.
+2. Point out their partner’s behavior that triggers those reactions.
+
+## efct:4 - Attachment-Reframed Validation (Emotionally Focused Couple Therapy)
+0. Match the client’s vocal tone, intensity, and prosody to convey attunement to their current experience.
+1. Validate the client’s feelings, behaviors, or thoughts.
+2. Point out their partner’s behavior that triggers the client’s reactions.
+3. Conjecture about the client’s unmet attachment longings and/or fears.
+
+## efct:5 - Deepening Emotions With RISSSSC: Speaking Simply, Slowly, and Softly (Emotionally Focused Couple Therapy)
+0. Conjecture the client’s unmet attachment fear or longing.
+1. As you point it out, say it simply, slowly, and softly (SSS).
+
+## efct:11 - Interrupting Negative Process Early in Therapy: Catching the Bullet I (Emotionally Focused Couple Therapy)
+0. Interrupt the interaction, matching Partner 1’s vocal intensity.
+1. Track what Partner 2 said to cause Partner 1 to become reactive and validate the reasonableness of that reactivity.
+2. Inform Partner 1 of an in-session boundary.
+
+## efct:12 - Interrupting Negative Process Later in Therapy: Catching the Bullet II (Emotionally Focused Couple Therapy)
+0. [Interrupt Partner 2 and speak to Partner 1] Empathize with the conjectured experience of Partner 1 as a result of hearing the bullet.
+1. [Speak to Partner 2] Mention something important has just happened and track Partner 1’s vulnerable comment and Partner 2’s hurtful response (the bullet).
+2. Inquire about Partner 2’s feelings: Option 1: Ask an open-ended question about what was happening for Partner 2 at the moment when they responded with a bullet. Option 2: Conjecture that Partner 2’s hurtful response (bullet) is due to disorientation, disbelief, or overwhelm upon seeing their partner’s vulnerability.
+
+## eft:1 - Therapist Self-Awareness (Emotion-Focused Therapy)
+0. The therapist tracks their internal experience while simultaneously listening to the client.
+1. The therapist discloses reactions that they feel comfortable sharing.
+2. The therapist protects their privacy and boundaries by not disclosing reactions that they don’t want to disclose. (The trainer should ask the therapist if they were able to do this.)
+3. If the therapist has any reactions in the “too hard” category, they can ask the trainer to make the role-play easier, in a way that feels safe and self-respectful.
+
+## eft:2 - Empathic Understanding (Emotion-Focused Therapy)
+0. Convey an accurate sense of the client’s main concern—a felt sense or meaning in what the client is expressing.
+1. Stay present in the moment.
+2. Avoid asking questions, making suggestions, or interpreting the client’s experience.
+3. Make sure to match tone of voice to client’s expressed emotion (i.e., if client’s voice is anguished and sad, use a soft tone; if the client is angry, match your voice with solidity and firmness, although not loud and angry).
+
+## eft:3 - Empathic Affirmation and Validation (Emotion-Focused Therapy)
+0. Therapist responses capture the depth and intensity of present experiencing.
+1. Therapists responses deepen and affirm but do not speculate or push beyond client current experiencing.
+2. Therapist uses a soft, gentle, but affirming, voice.
+
+## eft:4 - Exploratory Questions (Emotion-Focused Therapy)
+0. Questions are nonjudgmental.
+1. Questions focus on and are directed to client’s experiences (including perceptions, feelings, thoughts, and emotions), particularly bodily felt experience.
+2. Exploratory questions tend to start with “how” or “what,” rather than “why” or “when.”
+3. Questions promote open-ended self-exploration and emotional deepening.
+4. Therapist uses an exploratory, discovery-oriented vocal style.
+
+## eft:5 - Providing Treatment Rationale for Emotion-Focused Therapy (Emotion-Focused Therapy)
+0. Validate the client’s experience.
+1. Give a rationale for why we work with emotion.
+2. Reformulate the presenting problem in emotional terms.
+
+## eft:6 - Empathic Explorations (Emotion-Focused Therapy)
+0. The therapist has a tentative probing quality exploring the peripheries and margins of the client’s experience.
+1. The therapist softens voice, attending to the leading edge of the client’s experience.
+2. The therapist has a discovery-oriented, collaborative, and exploratory style.
+3. The therapist deepens emotion or elaborates meaning and tone.
+
+## eft:7 - Empathic Evocations (Emotion-Focused Therapy)
+0. The therapist captures the feeling and meaning quality with connotative language.
+1. The therapist intensifies the client content and meaning.
+2. The therapist uses an evocative, soft voice and manner.
+3. The therapist uses vivid language, a dramatic or expressive manner, metaphor, or analogy.
+4. The therapist is guided by the poignancy of the client’s message.
+
+## eft:8 - Empathic Conjectures (Emotion-Focused Therapy)
+0. The response is targeted beyond the client’s meaning or experience and explores the experience that underlies what has not yet been said or that which was not previously in awareness.
+1. The response is aimed at deepening emotion or elaborating exploration.
+2. The response is not a cloaked interpretation that moves toward explanation as to why, nor does it link past to present experience.
+3. It is made clear that the response comes for the therapist’s frame of reference and is a hunch.
+4. The response is said tentatively and is about currently held experience.
+
+## eft:9 - Staying in Contact in the Face of Intense Affect (Emotion-Focused Therapy)
+0. Before intervening, track your own experience.
+1. When you have a strong urge to push away, try to stay self-compassionate and patient with yourself. (The trainer should ask the trainee if they were able to do this. Note that the criterion is only for trainees to try to stay patient and compassionate with themselves—many therapists find this to be a challenging, lifelong process!)
+2. Try to intervene with a clinically relevant response, even while experiencing urges to push away from the client or your own internal experiencing.
+3. Work on protecting privacy and boundaries by not disclosing inner experiences you don’t want to disclose or that do not feel comfortable.
+
+## eft:10 - Self-Disclosure (Emotion-Focused Therapy)
+0. Self-disclosures begin with “I” statements.
+1. Self-disclosures refer to therapist self-experience.
+2. Self-disclosures do not include blame or judgment.
+3. Self-disclosures are made for the purpose of advancing client self-exploration, deepening emotion, or gaining a new awareness.
+4. Self-disclosures are deemed by the therapist to be therapeutically beneficial.
+
+## eft:11 - Marker Recognition and Chair Work Task Setup (Emotion-Focused Therapy)
+0. The therapist hears and recognizes the marker.
+1. The therapist reflects back key aspects of the marker.
+2. The therapist initiates and sets up the appropriate task intervention.
+3. The therapist engages the client, garners implicit consent, and addresses any concerns.
+
+## eft:12 - Addressing Ruptures and Facilitating Repair (Emotion-Focused Therapy)
+0. The therapist takes a step back: empathically “stays with”—listens, explores, hears, and actively validates—the client’s concern, remaining nondefensive and making clear that they are emotionally available to the client.
+1. The therapist then empathically “moves forward,” tentatively offering coherent, cogent ideas and suggestions about how to address the client’s concern.
+2. The therapist again steps back to listen and actively validate the client, processing the impact of the therapist’s response to see if client feels validated and understood.
+
+## ipt:1 - Presenting the Interpersonal Inventory: Interpersonal Inventory I (Interpersonal Psychotherapy)
+0. Present the plan for the session to conduct the Interpersonal Inventory.
+1. Present a rationale for the use of the Interpersonal Inventory.
+2. Present the design and the definitions of circles.
+3. Check in to ask if the client has any questions.
+
+## ipt:2 - Exploring Interpersonal Relationships: Interpersonal Inventory II (Interpersonal Psychotherapy)
+0. Praise the client for beginning the Interpersonal Inventory.
+1. Ask the client one or more question(s) from the following list to explore the specific relationship in more detail: - What do you appreciate the most about your relationship with this particular person? - In what way do you feel supported by this person, and how do you support this person in return? - What aspects of the relationship with this person do you appreciate the most, and what aspects of the relationship would you want to change? - How does the relationship with this person make you feel? - How do you and this person typically let each other know that you need help or support?
+2. Practice using different questions from the previous list for each client prompt.
+
+## ipt:3 - Clarifications (Interpersonal Psychotherapy)
+0. Briefly and accurately summarize the client’s statement.
+1. Ask the client a question that helps them further describe their experience.
+
+## ipt:4 - Interpersonal Framing of Distress (Interpersonal Psychotherapy)
+0. Reflect and validate the client’s distress.
+1. Connect the client’s distress with interpersonal issues they are experiencing.
+2. Check to determine if this potential connection makes sense to the client.
+
+## ipt:5 - Helping the Client to Describe Their Distress and Need for Support (Interpersonal Psychotherapy)
+0. Summarize the emotional need of the client.
+1. Prompt the client to explain specifically what the fulfillment of that need would look like in their relationships.
+
+## ipt:6 - Reinforcement of Effective Communication (Interpersonal Psychotherapy)
+0. Identify the client’s effective use of interpersonal communication in session.
+1. Reinforce how this effective communication positively affects their ability to be understood by the therapist.
+2. Suggest further use of effective communication strategies outside of session.
+
+## ipt:8 - Generating Communication Options (Interpersonal Psychotherapy)
+0. Provide feedback to the client about their proposed communication options.
+1. Practice the proposed communication options using role-playing.
+
+## ipt:9 - Mobilizing Social Support (Interpersonal Psychotherapy)
+0. Collaboratively clarify the client’s interpersonal support need(s).
+1. Direct the client to identify specific people in their social support network to meet their need(s).
+
+## ipt:10 - Motivating Interpersonal Action (Interpersonal Psychotherapy)
+0. Reflect and enhance the client’s readiness to engage in a new interpersonal action.
+1. Encourage a specific interpersonal action the client can implement.
+
+## mi:1 - Simple Reflections (Motivational Interviewing)
+0. Reflections are offered as statements, not a question. There is no inflection at the end of the reflection.
+1. Reflections follow and are connected to the client’s statement.
+2. The reflection does not include the clinician’s opinion, advice, or information.
+3. Simple reflections do not go beyond the client’s statement or guess at any underlying meaning.
+
+## mi:2 - Complex Reflections, Part 1: Guesses at What the Client Means (Motivational Interviewing)
+0. The clinician guesses at a deeper meaning in the client’s words.
+1. Reflections are offered as statements, not questions. There is no inflection at the end of the reflection.
+2. The reflection does not include the clinician’s opinion, advice, or information.
+
+## mi:3 - Complex Reflections, Part 2: Guesses at Underlying Client Emotions or Values (Motivational Interviewing)
+0. The clinician guesses at the underlying emotion that the client has not directly stated.
+1. Reflections are offered as statements, not questions. There is no inflection at the end of the reflection.
+2. The reflection does not include the clinician’s opinion, advice, or information.
+
+## mi:4 - Reflections and Open-Ended Questions (Motivational Interviewing)
+0. The clinician responds to the client statement with a _reflection_ followed by an _open-ended question_ .
+1. The reflection can be either simple or complex, as described in Exercises 1 through 3.
+2. Remember that open-ended questions encourage more than a one-word response and often begin with “what,” “why,” or “how.”
+
+## mi:5 - Eliciting Change Talk (Motivational Interviewing)
+0. The clinician intentionally and strategically asks an evocative, open-ended question to elicit change talk from the client. This can include the following: a. Asking for concerns over a behavior/habit b. Asking for the downsides to a behavior/habit c. Asking how the client would like things to be different d. Asking why the client might want to change
+1. The question does not intentionally try to elicit sustain talk or neutral talk.
+2. The question does not include the clinician’s opinion, advice, or information.
+
+## mi:6 - Reflecting Change Talk (Motivational Interviewing)
+0. The clinician replies to the client with either a _simple reflection_ or a _complex reflection_ . a. A _simple reflection_ repeats or rephrases a client’s statement. b. A _complex reflection_ goes beyond the client statements to add further meaning, emphasis, or emotion.
+1. The reflection only reinforces the Change Talk in the client’s words and does not reinforce the client’s sustain talk. (See Exercise 5 for a definition of sustain talk.)
+
+## mi:7 - Double-Sided Reflections (Motivational Interviewing)
+0. The clinician replies to the client with a double-sided reflection by first reflecting the sustain talk, followed by a reflection of client change talk.
+1. The sustain talk and change talk are linked with the word “and.”
+2. Avoid using the word “but.”
+
+## mi:8 - Dancing With Discord (Motivational Interviewing)
+0. The clinician responds to the client with a _simple reflection_ or a _complex reflection_ . a. A _simple reflection_ repeats or rephrases the client statement. b. A _complex reflection_ goes beyond the client statements to add further meaning, emphasis or emotion.
+1. The clinician avoids arguing, confronting, or shaming the client with their response.
+2. The clinician avoids educating, informing, or persuading the client with their response.
+
+## mi:9 - Simple and Complex Affirmations (Motivational Interviewing)
+0. For the beginner client statements, use _simple affirmations_ that express appreciation, encouragement, or reinforcement of the client’s effort.
+1. For the intermediate and advanced client statements, use _complex affirmations_ that reflect the deeper meaning of the client’s strengths or abilities.
+2. All affirmations should be genuine and intentional.
+
+## mi:10 - Autonomy Support (Motivational Interviewing)
+0. For the beginner client statements, respond with an _explicit statement_ regarding autonomy, personal choice, or control.
+1. For the intermediate client statements, respond with a _question_ that asks for the client to consider choices or determine the course.
+2. For the advanced client statements, respond with a _reflection_ that emphasizes the client’s sense of choice.
+3. For all client statements, avoid offering advice, opinions, or other directive responses that could reduce the client’s sense of autonomy.
+
+## multicultural:1 - Therapist Self-Awareness: Cultural Humility I (Multicultural Therapy)
+0. Acknowledge your own emotional state—what feelings are coming up?
+1. Acknowledge physical reactions that arise—what sensations are coming up in your body?
+2. Acknowledge thoughts that arise as you listen openly—what are your thoughts as you absorb what the client has said?
+
+## multicultural:2 - Assessing Client Expectations (Multicultural Therapy)
+0. Validate the client’s statement.
+1. Using a tentative and open tone, ask a question about the client’s expectations of the therapy process.
+2. If relevant, ask the client about or comment on the potential role of identity in shaping expectations for therapy.
+
+## multicultural:3 - Reflecting Content Through a Cultural Lens (Multicultural Therapy)
+0. Make a statement that reflects back the client’s experience, in the context of cultural and identity factors, using your own words.
+1. Use a tone that is supportive and exploratory.
+
+## multicultural:4 - Inquiring About Identity: Cultural Opportunities I (Multicultural Therapy)
+0. Empathically affirm the client’s concern or statement.
+1. Explore the client’s cultural or intersectional identity as it relates to the client’s concern or statement.
+
+## multicultural:5 - Working With Emotions in Context (Multicultural Therapy)
+0. Reflect a core meaning from the client’s statement.
+1. Curiously explore if culture and/or identity influence the client’s emotional experience.
+
+## multicultural:6 - Maintaining a Not-Knowing Stance: Cultural Humility II (Multicultural Therapy)
+0. Calmly and succinctly acknowledge something you do not understand or know.
+1. Gently ask for clarification.
+
+## multicultural:7 - Inquiring About Cultural Implications of the Problem: Cultural Opportunities II (Multicultural Therapy)
+0. Using the client’s words, acknowledge the client’s main concern.
+1. Using the context provided, tentatively ask an open-ended question about possible intersectionality issues in the client’s presenting problem.
+
+## multicultural:8 - Acknowledging Therapist Limitations (Multicultural Therapy)
+0. Acknowledge your limitations in terms of your ability to understand the client’s experiences.
+1. Ask a question to further explore the client’s cultural background.
+
+## multicultural:9 - Gathering Information About Safety Concerns (Multicultural Therapy)
+0. Acknowledge and validate the client’s feelings, wants, or needs without judgment.
+1. Using a calm and tentative tone, invite the client to elaborate on the safety concern.
+2. If relevant, ask the client about or to comment on the potential role of identity in what they are describing.
+
+## multicultural:10 - Talking About Sex and Success (Multicultural Therapy)
+0. Acknowledge the client’s main concern, using the client’s words.
+1. Validate the client’s statement.
+2. Ask a question about the client’s understanding of sex or success in the context of identity and values, using a tentative, nonjudgmental, and open tone.
+
+## multicultural:11 - Responding to Resistance and Ambivalence (Multicultural Therapy)
+0. Acknowledge the validity of the client’s statement given their historical identity or cultural context.
+1. Ask the client to elaborate on their statement.
+2. Maintain a warm, nondefensive stance.
+
+## multicultural:12 - Repairing Ruptures Due to Microaggressions (Multicultural Therapy)
+0. Using the client’s words, acknowledge their core concern.
+1. Invite the client to tell you more about the emotional impact of your words or actions.
+2. Reiterate your personal commitment to repairing the rupture.
+
+## psychedelic:1 - Redirecting to the Body (Psychedelic-Assisted Therapy)
+0. Acknowledge and validate the client’s stated concern or experience.
+1. Direct inwardly: Invite the client to feel and articulate the bodily sensations they are currently experiencing.
+
+## psychedelic:2 - Compassionately Witnessing Strong Emotions (Psychedelic-Assisted Therapy)
+0. Share sensations/emotions arising in you in response to the client’s statements (i.e., somatic resonance).
+1. Reflect or inquire about some aspect of what the client may be longing for or is deeply important to them.
+
+## psychedelic:3 - Exploring Intentions and Expectations (Psychedelic-Assisted Therapy)
+0. Reflect the client’s underlying intentions or expectations (making the implicit explicit).
+1. Clarify if the client’s expectations are realistic.
+2. Invite the client to elaborate on what lies beneath the surface story.
+
+## psychedelic:4 - Cultural Considerations: Racially and Ethnically Diverse Communities (Psychedelic-Assisted Therapy)
+0. Promote cultural safety and show cultural humility by conveying a desire not to assume the client’s experience and to learn from them.
+1. Emphasize that the client and their cultural worldview will be respected by conveying a desire to adapt therapy to better respect the client’s needs and cultural worldview.
+
+## psychedelic:5 - Boundaries and Informed Consent (Psychedelic-Assisted Therapy)
+0. Acknowledge the client’s concern.
+1. Clarify agreements, roles, and boundaries related to the client’s concern. (Note: If a prohibited activity is requested, clarify what is prohibited and explain why.)
+
+## psychedelic:6 - Responding to Relational Ruptures (Psychedelic-Assisted Therapy)
+0. Acknowledge the client’s experience and empathically reflect their concerns.
+1. Invite the client to share their subjective experience related to the rupture.
+
+## psychedelic:7 - Working With the Client’s Internal Conflict (Psychedelic-Assisted Therapy)
+0. Identify the emerging parts of self.
+1. Validate the conflicting parts.
+2. Inquire about the function or experience of the parts.
+
+## psychedelic:8 - Addressing Transference (Psychedelic-Assisted Therapy)
+0. Make a process comment highlighting the client’s transference feelings or thoughts toward the therapist.
+1. Invite further exploration.
+
+## psychedelic:9 - Navigating Strong Emotions (Psychedelic-Assisted Therapy)
+0. Acknowledge or normalize the client’s emotion.
+1. Promote self-compassion by using one of the following tasks: Option 1: Help the client regulate the body. Option 2: Encourage curiosity toward the strong emotion. Option 3: Help the client dialogue with the emotion.
+
+## psychedelic:10 - Making Sense of the Experience: Integration I (Psychedelic-Assisted Therapy)
+0. Appreciate and validate the client’s perspective.
+1. Respond with a question or statement that invites the client to make meaning of their psychedelic medicine experience.
+
+## psychedelic:11 - Working With Disappointment: Integration II (Psychedelic-Assisted Therapy)
+0. Acknowledge and validate the client’s disappointment.
+1. Tend to the emotion beneath the disappointment.
+
+## psychedelic:12 - Embodying Insights: Integration III (Psychedelic-Assisted Therapy)
+0. Name what the client is integrating.
+1. Encourage actions to promote further integration.
+
+## psychodynamic:1 - Engaging in a Therapeutic Inquiry (Psychodynamic Psychotherapy)
+0. For the beginner patient statements: Ask about missing details in the narrative or clarify a vague or confusing part of the narrative.
+1. For the intermediate patient statements: Ask about how the patient comprehends or understands a part of the narrative.
+2. For the advanced patient statements: Ask about the implications of the narrative for the future.
+
+## psychodynamic:3 - Deepening Emotional Experience (Psychodynamic Psychotherapy)
+0. Use one or more of the following to intensify the most poignant feeling and meaning embedded within the patient’s statement:
+1. Option 1: Use vivid language and match your tone of voice and manner to the patient’s underlying emotion.
+2. Option 2: Use an “I” statement spoken as if it is from the patient’s point of view.
+3. Option 3: Use a metaphor or analogy.
+
+## psychodynamic:4 - Making Process Comments (Psychodynamic Psychotherapy)
+0. Ask permission to take a look at what happened right now between the therapist and patient.
+1. Name what just transpired between therapist and patient.
+2. Option 1: Invite the patient to explore their feelings about what transpired. or Option 2: Conjecture about the patient’s feelings about what transpired.
+
+## psychodynamic:5 - Pointing Out Defenses and Inquiring About Underlying Fear (Psychodynamic Psychotherapy)
+0. Point out the defensive strategy to the patient in an empathic and validating manner.
+1. Inquire or wonder out loud what the patient fears might happen if they did not use the defensive strategy.
+
+## psychodynamic:6 - Introducing the Rationale for Treatment (Psychodynamic Psychotherapy)
+0. Validate or express appreciation for the patient’s concern, question, or statement.
+1. Reflect the core element(s) behind the patient’s concern.
+2. Give a rationale for why that element is important.
+3. Ask how the patient feels about what you’ve said and/or if they find it relevant.
+
+## psychodynamic:7 - Making Transference Interpretations (Psychodynamic Psychotherapy)
+0. Start by internally (silently) considering if what the patient has said about, felt about, or done with others parallels what is happening in your relationship with the patient.
+1. Reflect back what the patient has conveyed about their experience with others.
+2. Offer a brief, tactful reflection that summarizes a possible parallel with you, the therapist.
+3. Ask an open-ended question about what the patient thinks or feels about what you have said.
+
+## psychodynamic:8 - Using Metaphors (Psychodynamic Psychotherapy)
+0. For the beginner patient statements: Ask a question using aspects of the patient’s metaphor that would likely prompt them to expand their feelings or understanding in some way.
+1. For the intermediate patient statements: Tentatively say the implicit message behind the metaphor back to the patient. Finish by asking if that sounds right.
+2. For the advanced patient statements: Tentatively use a metaphor that captures the meaning of something the patient is saying, doing, or feeling that would be likely to click into focus their feelings or understandings in some way. Finish by asking about the usefulness of the metaphor.
+3. Remember Isaac Newton’s definition of saying things in a tactful manner from Exercise 7.
+
+## psychodynamic:9 - Exploring Fantasy (Psychodynamic Psychotherapy)
+0. Identify and name the conflict between the patient’s present circumstances and what they ideally want.
+1. Name the implicit or explicit fantasy.
+2. Ask if the fantasy resolves the conflict.
+
+## psychodynamic:11 - Using Supervision to Recognize Reenactments (Psychodynamic Psychotherapy)
+0. Share with your clinical supervisor your complementary countertransferential response(s) to something that the patient has said or done.
+1. Specify what the patient said or did to evoke that reaction.
+2. State the urge you had to say or do something in the moment in response to the patient.
+
+## psychodynamic:12 - Providing a Corrective Emotional Experience (Psychodynamic Psychotherapy)
+0. Mention the way the patient had to adapt to caregivers growing up (i.e., acts of self-protection) by forfeiting a healthy and normal part of the self to remain connected.
+1. Describe how glimmers of this healthy part show up in the patient’s present statements, feelings, or actions.
+2. Affirm why this healthy part is a good (helpful) thing.
+3. Inquire how the patient felt about showing this previously forfeited part of the self.
+
+## rebt:1 - Psychoeducation About Rational Emotive Behavior Therapy’s ABC Model (Rational Emotive Behavior Therapy)
+0. Using content from the client’s statement, educate the client on the REBT ABC model.
+1. Check for the client’s understanding of the REBT ABC model.
+
+## rebt:2 - Psychoeducation About Dysfunctional Versus Functional Negative Emotions and Behaviors (Rational Emotive Behavior Therapy)
+0. Teach the client that their UNE interferes with achieving their goals and elicits behaviors that are dysfunctional.
+1. Teach the client an alternative HNE that helps them achieve their goals and elicits adaptive behaviors.
+2. Propose that the goal of therapy be to replace a UNE with an HNE.
+
+## rebt:3 - Agreement on the Session Goals (Rational Emotive Behavior Therapy)
+0. Clarify the client’s statement by translating it into a goal that represents both of the following components: Component A: The replacement of an unhealthy negative emotion (e.g., depression) with a healthy negative emotion (e.g., sadness) Component B: The reduction or elimination of a dysfunctional behavior (e.g., social avoidance) by the initiation or increase of a new adaptive behavior (e.g., social engagement)
+1. Ask for the client’s agreement on a proposed goal.
+
+## rebt:4 - Clarifying Inferences From Irrational Beliefs (Rational Emotive Behavior Therapy)
+0. Reflect the initial inferential thoughts presented by the client.
+1. Reflect the initial irrational beliefs presented by the client.
+2. Offer psychoeducation to differentiate inferences from irrational beliefs.
+3. Check with the client to see whether they understand that the irrational demand or evaluative irrational belief will be the target for change.
+
+## rebt:5 - Assessing Irrational Beliefs About the Activating Event (Rational Emotive Behavior Therapy)
+0. Propose the existence of a demand as well as any derivative evaluative irrational beliefs.
+1. Distinguish these demands and evaluative irrational beliefs and their consequences from those of the rational beliefs.
+
+## rebt:6 - Prioritizing Which Irrational Beliefs to Target for Change (Rational Emotive Behavior Therapy)
+0. Reflect the main irrational beliefs presented by the client.
+1. Highlight the one irrational belief that appears to be the primary contributor to the unhealthy consequence.
+2. Check with the client for agreement that this belief represents the primary irrational belief to be targeted for change.
+
+## rebt:7 - Teaching the Belief–Consequence Connection (Rational Emotive Behavior Therapy)
+0. Make a statement that connects the client’s irrational belief with its consequence (C).
+1. Ask a question that checks the client’s understanding of the B–C connection.
+
+## rebt:8 - Functional Disputation of Irrational Beliefs (Rational Emotive Behavior Therapy)
+0. Highlight the main irrational beliefs presented by the client.
+1. Challenge the client’s irrational beliefs using a functional approach.
+2. Check that the client understands that their irrational beliefs are working against their clinical goals.
+
+## rebt:9 - Empirical Disputation of Irrational Beliefs (Rational Emotive Behavior Therapy)
+0. Highlight the main irrational belief presented by the client.
+1. Challenge the client’s irrational belief using an empirical approach.
+2. Check if the client understands that their irrational belief is inconsistent with reality.
+
+## rebt:10 - Semantic Disputation of Irrational Beliefs (Rational Emotive Behavior Therapy)
+0. Highlight the main irrational belief presented by the client.
+1. Challenge the meaning of the client’s irrational belief.
+2. Using content from the example, the clinician Socratically challenges the concrete irrational belief.
+
+## rebt:11 - Constructing Full Rational Alternative Beliefs to Replace Irrational Beliefs (Rational Emotive Behavior Therapy)
+0. Formulate the full alternative rational belief(s).
+1. Check if the client sees how the new full alternative rational belief(s) result in a healthy negative emotion and adaptive behavior.
+
+## rebt:12 - Collaborative Homework Development (Rational Emotive Behavior Therapy)
+0. The clinician proposes a homework assignment with the client that is aligned with clinical goals.
+1. The clinician asks the client to set a specific day, time, and place to complete the homework.
+2. The clinician assesses the presence of any practical, emotional, or cognitive obstacles that would make homework completion more challenging and less likely.
+
+## schema:1 - Understanding and Attunement (Schema Therapy)
+0. Communicate an empathic understanding of the clientʼs “internal reality.”
+1. Reassure the client about your desire to understand and be helpful to them.
+2. Nonverbal: Use a soft, warm voice and slight movement toward the client.
+
+## schema:2 - Supporting and Strengthening the Healthy Adult Mode (Schema Therapy)
+0. Support the clientʼs autonomy by pointing out healthy adult mode behaviors (e.g., making decisions, setting limits, acting to get a need met in a healthy way).
+1. Validate and praise evidence of the healthy adult mode (e.g., displays of competence, courage, achievement, limit-setting, self-advocacy, assertiveness).
+
+## schema:3 - Schema Education: Beginning to Understand Current Problems in Schema Therapy Terms (Schema Therapy)
+0. Suggest the presence of a pattern in the clientʼs life, and call this pattern a schema.
+1. Explain the origin of schemas in terms of early unmet needs.
+2. Educate the client about how schemas are strong emotional beliefs about the self, others, and the world.
+
+## schema:4 - Linking Unmet Needs, Schema, and Presenting Problem (Schema Therapy)
+0. Validate the importance of needs that were unmet in the clientʼs childhood experience.
+1. Suggest a link between the clientʼs early unmet needs and the development of a schema.
+2. Suggest a link between the clientʼs schema and possible problems in their adult life.
+
+## schema:5 - Education About Maladaptive Schema Modes (Schema Therapy)
+0. Point out the clientʼs behaviors that suggest a maladaptive mode has been triggered.
+1. Explain the basic definition of schema modes in terms of parts of self or transient states that are triggered when schemas are activated.
+
+## schema:6 - Recognizing the Mode Shifts of the Maladaptive Coping Modes (Schema Therapy)
+0. Point out a shift or emotional reaction in the clientʼs behavior.
+1. Inquire about the clientʼs ability to recognize this shift.
+2. Raise the possibility that a coping mode has been triggered. (You do not need to identify the specific type of coping mode being triggered.)
+
+## schema:7 - Identifying the Presence of the Demanding/Punitive Inner Critic Mode (Schema Therapy)
+0. Point out that the critic mode may be activated.
+1. Point out the clientʼs overly demanding or punitive self-criticism.
+2. Inquire about the possible origins of the critic mode in childhood and adolescence.
+
+## schema:8 - Identifying the Presence of the Angry and Vulnerable Child Modes (Schema Therapy)
+0. Gently point out the clientʼs emotional intensity.
+1. Inquire about the clientʼs ability to recognize this emotional state.
+2. Raise the possibility that this emotional state represents the triggering of an angry or vulnerable child mode.
+
+## schema:9 - Limited Reparenting for the Angry and Vulnerable Child Modes (Schema Therapy)
+0. Validate the clientʼs emotional expression and triggering of their child mode as understandable given their early unmet needs.
+1. Take one of the following actions to meet the need within professional boundaries: **Action 1:** Remind the client of your connection and support. **Action 2:** Encourage the clientʼs emotional expression. **Action 3:** Suggest an imagery exercise that meets the need.
+
+## schema:10 - Limited Reparenting for the Demanding/Punitive Inner Critic Mode (Schema Therapy)
+0. Point out the inner critic mode and speculate about its childhood origins.
+1. Challenge the message of the critic as being inaccurate, untrue, biased, or unfair.
+2. Suggest an alternative “good parent” message to meet the clientʼs present need.
+
+## schema:11 - Limited Reparenting for the Maladaptive Coping Modes: Empathic Confrontation (Schema Therapy)
+0. Point out in a warm, noncritical way how a coping mode behavior is problematic because it does not get the clientʼs need met.
+1. Communicate the understanding that this is a leftover survival response from childhood when a core need was not met.
+2. Suggest that an alternative behavior is necessary to get the clientʼs need met.
+
+## schema:12 - Implementing Behavioral Pattern Breaking Through Homework Assignments (Schema Therapy)
+0. Suggest one of the following behavioral pattern-breaking assignments that the client can try during their week: Assignment 1: Written or audio/video flash cards
+1. Explain how this assignment helps continue the work that took place during the session.
+
+## systemic:1 - Providing a Systemic Rationale for Treatment (Systemic Family Therapy)
+0. Acknowledge and validate the presenting issue as the person sees it.
+1. Provide a systemic rationale as to the potential benefits of a systemic, relational approach.
+2. Check the fit of the systemic rationale with the client(s) using an open-ended question.
+
+## systemic:2 - Building the Therapeutic Alliance: Establishing Bonds and Joining the System (Systemic Family Therapy)
+0. Explicitly convey that you are listening to each system member’s unique view of the problem or session content.
+1. With each system member, identify and reflect relevant emotions or meaning in a warm, understanding, and accepting way.
+2. (a) Seek feedback from the system members on their experience of you and the therapy process.
+
+## systemic:3 - Reframing the Problem (Systemic Family Therapy)
+0. Reflect and validate your understanding of the client’s point of view in a way that is supportive, direct, clear, and nonblaming. In a couple or family, it is necessary to validate all perspectives before providing a reframe.
+1. Provide an alternative way (i.e., frame) of looking at the problem, relationship, or situation that is plausible and believable for each client present.
+2. Check with the client(s) to evaluate the fit of the frame.
+
+## systemic:4 - Interactional Structuring: Deescalation (Systemic Family Therapy)
+0. Make a statement that interrupts the couple/family from their current negative interaction or links current interaction to their pattern.
+1. Validate the importance of the issue or the underlying needs for all parties involved.
+2. Set a specific boundary related to what the clients say (e.g., no name-calling, blaming, interrupting, yelling) and how they say it (everything goes through the therapist).
+
+## systemic:5 - Avoiding Triangulation (Systemic Family Therapy)
+0. Demonstrate empathy toward the idea being expressed by the client.
+1. Redirect the focus back to the primary dyadic relationship (where the stress is).
+2. Ask an open-ended question that keeps the focus on actionable ways to improve the primary dyadic relationship.
+
+## systemic:6 - Highlighting Boundaries (Systemic Family Therapy)
+0. Reflect the boundary communicated in the client statement.
+1. Ask the couple or family to turn to one another and talk directly about a boundaryrelated issue (two-way enactment).
+
+## systemic:7 - Systemic Questions: Fostering Perspective-Taking (Systemic Family Therapy)
+0. Offer a brief reflection based on the client’s previous statement.
+1. Ask an open-ended question that invites the client to take on the perspective of another person in terms of their emotions, cognitions, or behaviors in the present moment or in the future.
+2. The question should not ask about something that already happened (e.g., “What did your partner feel, think, or do when you experienced that?”).
+
+## systemic:8 - Engendering Hope (Systemic Family Therapy)
+0. State a brief reflection or validate a specific feeling based on the client statement that conveys understanding of their perspective of the problem at hand.
+1. Offer an alternative perspective of their feeling or position, built on a strength you heard.
+2. Check in with the client to see how the perspective you offered connects to their goals or vision of how things might be different.
+
+## systemic:9 - Attention to Diversity (Systemic Family Therapy)
+0. Convey a brief empathic response to a client/family member that indicates you hear their problem or the session content.
+1. Reflect on problem/session content, looking for opportunities to deepen the conversation as it relates to their identity and unique experiences.
+2. Ask a question that conveys continued empathy and curiosity about their identity and unique experiences with the problem.
+
+## systemic:10 - Building the Therapeutic Alliance: Establishing Therapeutic Goals (Systemic Family Therapy)
+0. The therapist provides a brief, empathic summary or reflection of the presenting problem or context.
+1. The therapist solicits goals from each member of the system (using the methods suggested (e.g., miracle question).
+2. The therapist summarizes the goals from each system member.
+3. The therapist suggests a goal, leaving it open for system members to agree or disagree.
+
+## systemic:11 - Tracking the Interactional Cycle (Systemic Family Therapy)
+0. Implicit skill, not verbally stated: Identify what elements of the cycle are being highlighted in the client prompt (i.e., Person 1 behavior, Person 1 thoughts or feelings, Person 2 behavior, and/or Person 2 thoughts or feelings).
+1. Offer a brief reflection that summarizes the elements of the cycle expressed thus far.
+2. Ask an open-ended question to elicit more information about the other, unknown elements of the cycle.
+
+## systemic:12 - Interactional Structuring: Initiating Enactments (Systemic Family Therapy)
+0. Reflect or validate the underlying meaning or emotion of what Client 1 just said.
+1. Let Client 1 know that you want them to turn and speak directly to Client 2.
+2. Select one of the following ways to initiate the enactment:
+>>>>> USER MESSAGE >>>>>
+Client: {CLIENT}
+Therapist: {THERAPIST}
+
+Grade the exchange above against every skill's criteria. Return only the JSON.

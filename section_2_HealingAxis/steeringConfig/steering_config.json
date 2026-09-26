@@ -1,0 +1,40 @@
+{
+  "models": {
+    "Qwen3-4B": {
+      "hf_id": "Qwen/Qwen3-4B-Instruct-2507",
+      "layer": 18,
+      "alpha": 5,
+      "dtype": "float16"
+    },
+    "Qwen3-8B": {
+      "hf_id": "Qwen/Qwen3-8B",
+      "layer": 22,
+      "alpha": 2,
+      "dtype": "float16"
+    },
+    "Llama-3.1-8B": {
+      "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "layer": 14,
+      "alpha": 3,
+      "dtype": "float16"
+    },
+    "Gemma-3-12B": {
+      "hf_id": "unsloth/gemma-3-12b-it",
+      "layer": 31,
+      "alpha": 4,
+      "dtype": "bfloat16"
+    },
+    "Gemma-3-27B": {
+      "hf_id": "unsloth/gemma-3-27b-it",
+      "layer": 25,
+      "alpha": 3,
+      "dtype": "bfloat16"
+    },
+    "OLMo-3-7B": {
+      "hf_id": "allenai/OLMo-3-7B-Instruct",
+      "layer": 16,
+      "alpha": 3,
+      "dtype": "float16"
+    }
+  }
+}
